@@ -1,5 +1,6 @@
+## 1. Những thứ cần có:
 - Nếu bạn chưa tải Node.JS thì bạn có thể tải nó [ở đây](https://www.nodejs.org/).
-## Cách tạo bot Messenger tích hợp ChatGPT
+## 2. Cách tạo:
 
 - Clone source code:
 - Hoặc bạn có thể tải về từ Github.
