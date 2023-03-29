@@ -17,7 +17,7 @@ module.exports = {
         if (config.ratelimit.has(message.thread.id))
             return message.thread.send('❎ Bot đang xử lý câu hỏi trước đó, xin vui lòng đợi.')
         
-        const msg = args.join()
+        const msg = args.join(' ')
         config.ratelimit.set(message.thread.id, true)
         
         const history = config.cache.get(message.thread.id)
