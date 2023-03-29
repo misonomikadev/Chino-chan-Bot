@@ -12,7 +12,7 @@ cd Chino-chan-Bot
 ```
 npm i
 ```
-- Đặt token OpenAI của bạn vào file **config.js**
+- Đặt token OpenAI của bạn vào file **config.js**. Bạn có thể vào [đây](https://platform.openai.com/account/api-keys) để tạo API Key nhé.
 ```js
 // ./config/config.js
 const config = {
