@@ -7,7 +7,6 @@ const { Client, Message } = require('messenger-api.js')
  */
 module.exports = function(client, message) {
     if (message.isClientUser) return
-    if (message.thread.isGroup) return
     if (!message.content.startsWith(config.prefix)) return
 
     const args = message.content.slice(config.prefix.length).trim().split(/\s+/g)
