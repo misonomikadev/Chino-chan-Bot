@@ -17,9 +17,6 @@ module.exports = {
         if (config.ratelimit.has(message.thread.id))
             return message.thread.send('❎ Bot đang xử lý câu hỏi trước đó, xin vui lòng đợi.')
         
-        const token = await config.database.get(message.thread.id)
-        if (!token) return message.thread.send(`❎ Chưa có token nào bạn đặt cho bot, hãy bấm lệnh /openaikey set <token> để đặt cho bot.`)
-
         const msg = args.join()
         config.ratelimit.set(message.thread.id, true)
         
@@ -37,7 +34,7 @@ module.exports = {
         }, {
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
+                "Authorization": `Bearer ${config.openaikey}`
             }
         }).then(res => {
             if (!String(res.status).startsWith('2')) {

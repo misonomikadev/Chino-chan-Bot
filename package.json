@@ -10,9 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "better-sqlite3": "^8.2.0",
     "messenger-api.js": "^0.0.8-edited",
-    "node-cache": "^5.1.2",
-    "quick.db": "^9.1.1"
+    "node-cache": "^5.1.2"
   }
 }
