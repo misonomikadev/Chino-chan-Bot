@@ -1,7 +1,10 @@
-## 1. Những thứ cần có:
+## 1. Lưu ý:
+- Tôi không chịu trách nhiệm cho tất cả những gì bạn dùng code của tôi để làm những việc sai trái trên Facebook. Xin hãy tôn trọng mọi người trên cộng đồng Facebook.
+
+## 2. Những thứ cần có:
 - 1 tài khoản [Facebook](https://www.facebook.com/) để làm bot. Nếu bạn chỉ muốn để test thì dùng [Facebook Whitehat Account](https://www.facebook.com/whitehat/accounts/) để tránh bị ban account nhé.
 - Nếu bạn chưa tải Node.JS thì bạn có thể tải nó [ở đây](https://www.nodejs.org/).
-## 2. Cách tạo:
+## 3. Cách tạo:
 
 - Clone source code hoặc tải về từ GitHub:
 ```sh
@@ -38,7 +41,7 @@ npm start
 
 Và khi terminal của bạn xuất hiện ***username* đã online.** thì bạn đã thành công rồi đấy, chúc bạn may mắn :3
 
-## 3. Những lệnh của bot:
+## 4. Những lệnh của bot:
 - Prefix mặc định của bot là: **/**. Bạn có thể thay prefix bạn muốn trong **config.js**.
 - **/ask [message]**: Để nói chuyện với bot (ChatGPT). Ví dụ: */ask ChatGPT là cái gì?*
 - **/roll [number]**: Ra số ngẫu nhiên với số tối đa là *[number]*. Ví dụ: */roll 300*
