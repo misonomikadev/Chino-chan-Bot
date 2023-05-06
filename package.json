@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "events": "^3.3.0",
-    "messenger-api.js": "^0.0.9",
-    "node-cache": "^5.1.2"
+    "messenger-api.js": "^0.1.0",
+    "node-cache": "^5.1.2",
+    "openai": "^3.2.1"
   }
 }

@@ -1,7 +1,10 @@
 const { Client, Message } = require('messenger-api.js')
-const axios = require('axios').default
 const config = require('../../config/config.js')
+const { Configuration, OpenAIApi } = require('openai')
 const ms = require('ms')
+
+const openaiConfig = new Configuration({ apiKey: config.openaikey })
+const api = new OpenAIApi(openaiConfig)
 
 module.exports = {
     name: 'ask',
@@ -21,29 +24,17 @@ module.exports = {
         config.ratelimit.set(message.thread.id, true)
         
         const history = config.cache.get(message.thread.id)
-        await axios.post('https://api.openai.com/v1/chat/completions', {
+        await api.createChatCompletion({
             model: 'gpt-3.5-turbo',
             messages: !history ? [
-                { role: 'user', content: msg },
+                { role: 'user', content: msg }
             ] : [
                 { role: 'user', content: history.question },
                 { role: 'assistant', content: history.answer },
                 { role: 'user', content: msg }
             ],
             max_tokens: 2048
-        }, {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${config.openaikey}`
-            }
         }).then(res => {
-            if (!String(res.status).startsWith('2')) {
-                if (String(res.status).startsWith('5'))
-                    return message.reply('❎ Đã có lỗi xảy ra phía server OpenAI.')
-                
-                return message.reply('❎ Hình như token OpenAI của bạn không hợp lệ, hãy đặt lại token.') 
-            }
-
             const success = res.data.choices[0].message.content
             config.cache.del(message.thread.id)
 
