@@ -24,6 +24,8 @@ module.exports = {
         config.ratelimit.set(message.thread.id, true)
         
         const history = config.cache.get(message.thread.id)
+        
+        await message.thread.messages.markAsRead()
         await api.createChatCompletion({
             model: 'gpt-3.5-turbo',
             messages: !history ? [
@@ -41,7 +43,7 @@ module.exports = {
             config.cache.set(message.thread.id, { question: msg, answer: success }, ms('5m'))
             config.ratelimit.delete(message.thread.id)
             
-            return message.reply(success)
+            return message.reply(success, { typing: true })
         }).catch(error => {
             console.error(error)
             config.ratelimit.delete(message.thread.id)
