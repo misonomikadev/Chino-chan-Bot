@@ -9,7 +9,17 @@ module.exports = {
      * @arg {string[]} args 
      */
     run: (client, message, args) => {
-        const random = Math.floor(Math.random() * args[0] ? Math.round(Number(args[0])) : 100) + 1
-        return message.thread.send(`🎲 Con số may mắn của bạn là: ${random}`)
+        let start = 100
+        if (args[0]) {
+            const number = Number(args[0])
+            if (!Number.isInteger(number) || number < 0)
+                return message.thread.send('❎ Số không hợp lệ.')
+            
+            start = number
+        }
+
+        const end = start * 10
+        const result = Math.floor(Math.random() * (end - start + 1)) + start
+        return message.thread.send(`🎲 Con số may mắn của bạn là: ${result}`)
     }
 }
