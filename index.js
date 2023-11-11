@@ -1,5 +1,6 @@
 const { Client } = require('messenger-api.js')
 const client = new Client({ online: true })
+const config = require('./config/config.js')
 const fs = require('fs')
 
 client.on('ready', bot => {
@@ -11,4 +12,4 @@ client.on('ready', bot => {
     console.log(`${bot.user.username} đã online.`)
 })
 
-client.login(require('./config/fbstate.json'), true)
+client.login(config.credentials, true)
